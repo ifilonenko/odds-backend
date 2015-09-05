@@ -11,8 +11,8 @@ class FeedController
 
     Database.query(query, [], (dbres) ->
       posts = dbres.rows
-      postIDString = posts.map((row) -> row.id).join(', ')
-      commentsQuery = 'SELECT * FROM comments WHERE comments.post_id IN ($1);'
+      postIDString = '{' + posts.map((row) -> row.id).join(',') + '}'
+      commentsQuery = 'SELECT * FROM comments WHERE comments.post_id = ANY($1::INT[]);'
       Database.query(commentsQuery, [postIDString], (commentsRes) ->
         comments = commentsRes.rows
         for comment in comments
@@ -28,8 +28,8 @@ class FeedController
         render()
       )
 
-      winnerQuery = 'SELECT * FROM users WHERE users.id IN ($1);'
-      postWinnerIDString = posts.map((row) -> row.winner_id).join(', ')
+      winnerQuery = 'SELECT * FROM users WHERE users.id = ANY($1::INT[]);'
+      postWinnerIDString = '{' + posts.map((row) -> row.winner_id).join(',') + '}'
       Database.query(winnerQuery, [postWinnerIDString], (winnerRes) ->
         winners = winnerRes.rows
         for winner in winners
@@ -41,8 +41,8 @@ class FeedController
         render()
       )
 
-      loserQuery = 'SELECT * FROM users WHERE users.id IN ($1);'
-      postLoserIDString = posts.map((row) -> row.loser_id).join(', ')
+      loserQuery = 'SELECT * FROM users WHERE users.id = ANY($1::INT[]);'
+      postLoserIDString = '{' + posts.map((row) -> row.loser_id).join(',') + '}'
       Database.query(loserQuery, [postLoserIDString], (loserRes) ->
         losers = loserRes.rows
         for loser in losers
