@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  winner_id: 1
+  loser_id: 1
+  task: MyString
+  odds: 1
+  like_count: 1
+
+two:
+  winner_id: 1
+  loser_id: 1
+  task: MyString
+  odds: 1
+  like_count: 1
