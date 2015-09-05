@@ -16,6 +16,7 @@ class Database
       @releaseClient = done
       @ready = true
     )
+  timestamp: => Math.floor((new Date()).getTime() / 1000)
   query: (query, params, callback) =>
     if !@ready
       setTimeout((->

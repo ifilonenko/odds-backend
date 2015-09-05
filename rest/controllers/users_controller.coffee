@@ -2,10 +2,10 @@ Database = require '../db/database.coffee'
 
 class UsersController
   create: (req, res) =>
-    user = req.user
-    timestamp = (new Date()).getTime()
-    query = 'INSERT INTO users (id, name, photo_url) VALUES ($1::int, $2, $3) RETURNING id';
-    Database.query(query, [timestamp, req.name, req.photo_url], (dbres) ->
+    user = req.body.user
+    createdAt = updatedAt = (new Date()).toISOString()
+    query = 'INSERT INTO users (id, name, photo_url, created_at, updated_at) VALUES ($1::int, $2, $3, $4, $5) RETURNING id';
+    Database.query(query, [Database.timestamp(), user.name, user.photo_url, createdAt, updatedAt], (dbres) ->
       res.send({user: dbres})
     )
 
