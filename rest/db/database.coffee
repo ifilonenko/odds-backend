@@ -1,6 +1,6 @@
 pg = require 'pg'
 env = process.env
-connString = 'postgres://' + env.PG_USER + ':' + env.PG_PW + '@' + env.PG_HOST + '/' + env.PG_DB
+connString = 'postgres://' + env.PG_USER + ':' + env.PG_PW + '@' + env.PG_HOST + '/' + env.PG_DB + '?ssl=true'
 
 class Database
   constructor: ->

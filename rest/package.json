@@ -1,0 +1,20 @@
+{
+  "name": "Odds-Backend",
+  "version": "0.0.1",
+  "description": "Pennapps Fall 2015",
+  "main": "index.js",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Feifan Zhou",
+  "license": "MIT",
+  "dependencies": {
+    "coffee-script": "1.10.0",
+    "express": "^4.13.0",
+    "dotenv": "1.2.0",
+    "pg": "4.4.1"
+  }
+}
