@@ -9,4 +9,4 @@ class CommentsController
       res.send({comment: dbres})
     )
 
-module.exports = new CommentsController()
+module.exports = new FeedController()
