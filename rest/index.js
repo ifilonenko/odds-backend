@@ -3,6 +3,8 @@ require('coffee-script/register');
 
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
+app.use(bodyParser());
 
 var FeedController = require('./controllers/feed_controller.coffee');
 var CommentsController = require('./controllers/comments_controller.coffee');
