@@ -11,14 +11,14 @@ var CommentsController = require('./controllers/comments_controller.coffee');
 var PostsController = require('./controllers/posts_controller.coffee');
 var UsersController = require('./controllers/users_controller.coffee');
 var LikesController = require('./controllers/likes_controller.coffee');
-var VideoController = require('./controllers/videos_controller.coffee');
+var VideosController = require('./controllers/videos_controller.coffee');
 
 app.get('/feed', FeedController.index);
 app.post('/users', UsersController.create);
 app.post('/comments', CommentsController.create);
 app.post('/posts', PostsController.create);
 app.post('/likes', LikesController.create);
-app.post('/videos', VideoController.getURL);
+app.get('/videos/:file_name', VideosController.getURL);
 app
   .set('port', (process.env.PORT || 8080))
   .listen(app.get('port'), function() {
