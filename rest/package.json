@@ -9,13 +9,15 @@
   "scripts": {
     "start": "node index.js"
   },
+  "devDependencies": {
+    "dotenv": "1.2.0"
+  },
   "author": "Feifan Zhou",
   "license": "MIT",
   "dependencies": {
     "body-parser": "1.13.3",
     "coffee-script": "1.10.0",
     "express": "^4.13.0",
-    "dotenv": "1.2.0",
     "pg": "4.4.1",
     "azure": "0.10.6"
   }
