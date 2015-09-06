@@ -6,7 +6,7 @@ class FeedController
     posts = []
     done = 0
     render = ->
-      return unless done == 3
+      return unless done > 2
       res.send({posts: posts})
 
     Database.query(query, [], (dbres) ->
